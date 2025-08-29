@@ -232,10 +232,11 @@ const removeUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
   try {
+    const useId = req.params.id
     const { _id, name, email, password, role, avatar, addresses, isActive } =
       req.body;
 
-    const user = await userModel.findById(_id);
+    const user = await userModel.findById(useId);
     if (!user) {
       return res.json({ success: false, message: "User not found" });
     }
