@@ -17,10 +17,10 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
   "https://hl-sports-client.netlify.app",
-  "https://hlsports.netlify.app", 
+  "https://hlsports.netlify.app",
   "https://hlsportadmin.netlify.app",
-  "http://localhost:8081", 
-  "http://10.0.2.2:8081", 
+  "http://localhost:8081",
+  "http://10.0.2.2:8081",
   "http://10.0.2.2:8000",
 ].filter(Boolean);
 
@@ -30,7 +30,7 @@ console.log("Allowed CORS Origins:", allowedOrigins);
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin) return callback(null, true); // mobile app hoặc curl
+      if (!origin) return callback(null, true);
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
       } else {
