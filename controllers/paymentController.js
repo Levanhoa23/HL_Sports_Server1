@@ -104,9 +104,7 @@ export const confirmPayment = async (req, res) => {
           subject:
             "Xác nhận thanh toán thành công / Payment Confirmation - HL_Sports",
           html: `
-            <h2>Xin chào bạn{
-            order.address.lastName
-          },</h2>
+            <h2>Xin chào Quý khách,</h2>
             <p>Bạn đã thanh toán thành công đơn hàng <b>#${order._id}</b>.</p>
             <p>Tổng tiền / Total amount: <b>${amountVND.toLocaleString(
               "vi-VN"
