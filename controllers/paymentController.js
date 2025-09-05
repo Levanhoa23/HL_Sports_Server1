@@ -87,24 +87,7 @@ export const confirmPayment = async (req, res) => {
 
     // Cập nhật trạng thái đơn
     order.paymentStatus = "paid";
-    order.status = "confirmed";
-    await order.save();
-    console.log(" Order updated:", order._id);
-
-    // Tính tiền VNĐ
-    const amountVND = order.amount * 23000; // giả sử order.amount là USD
-
-    // 📧 Gửi email xác nhận thanh toán
-    if (!order.address || !order.address.email) {
-      console.warn("Address info missing, cannot send email");
-    } else {
-      try {
-        await sendEmail({
-          to: order.address.email,
-          subject:
-            "Xác nhận thanh toán thành công / Payment Confirmation - HL_Sports",
-          html: `
-            <h2>Xin chào ${order.address.firstName} ${
+    order.status = "confirmebạn{
             order.address.lastName
           },</h2>
             <p>Bạn đã thanh toán thành công đơn hàng <b>#${order._id}</b>.</p>
